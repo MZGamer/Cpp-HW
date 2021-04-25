@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int countStr(char *s) {
+    return strlen(s);
+}
+
+int countAlp(char *s) {
+    int count = 0;
+    for(int i=0; i<int(strlen(s));i++) {
+        if(s[i]>='a' && s[i]<='z') {
+            count++;
+        } else if (s[i]>='A' && s[i]<='Z') {
+            count ++;
+        }
+    }
+    return count;
+}
+
+int countDig(char *s) {
+    int count = 0;
+    for(int i=0; i<int(strlen(s));i++) {
+        if(s[i]>='0' && s[i]<='9') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countSpaces(char *s) {
+    int count = 0;
+    for(int i=0; i<int(strlen(s));i++) {
+        if(s[i] == ' ') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countSp(char *s) {
+    return countStr(s) - countAlp(s) - countDig(s) - countSpaces(s);
+}
+
+int main() {
+    char s[10000];
+    int fun;
+    string temp;
+    while(cin >> fun) {
+        int flag = 0;
+        switch (fun){
+            case 1:
+                getline(cin,temp);
+                cin.getline(s,10000);
+                break;
+            case 2:
+                cout << countStr(s) << endl;
+                break;
+            case 3:
+                cout << countAlp(s) << endl;
+                break;
+            case 4:
+                cout << countDig(s) << endl;
+                break;
+            case 5:
+                cout << countSpaces(s) << endl;
+                break;
+            case 6:
+                cout << countSp(s) << endl;
+                break;
+            case 7:
+                flag = 1;
+                break;
+        }
+        if(flag == 1)
+            break;
+    }
+}
